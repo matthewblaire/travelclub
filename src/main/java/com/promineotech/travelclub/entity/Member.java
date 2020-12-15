@@ -90,7 +90,7 @@ public class Member {
 	}
 
 	@OneToOne(cascade = CascadeType.ALL)
-	@JoinColumn(name = "MemberId", referencedColumnName = "memberId")
+	@JoinColumn(name = "member_id", referencedColumnName = "memberId")
 	public Itinerary getItinerary() {
 		return itinerary;
 	}
