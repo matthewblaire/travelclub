@@ -1,5 +1,5 @@
 package com.promineotech.travelclub.util;
 
-public class MembershipStatus {
+public enum MembershipStatus {
 
 }
