@@ -1,9 +1,14 @@
 package com.promineotech.travelclub.entity;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
+
+import com.promineotech.travelclub.util.MembershipStatus;
 
 @Entity
 public class Member {
@@ -12,10 +17,11 @@ public class Member {
 	private String firstName;
 	private String middleName;
 	private String lastName;
-	private MembershipLevel level; // need to create enum membership level
+	private MembershipStatus status;
 	private int miles;
 	private String phoneNumber;
 	private String email;
+	private Itinerary itinerary;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -51,14 +57,6 @@ public class Member {
 		this.lastName = lastName;
 	}
 
-	public MembershipLevel getLevel() {
-		return level;
-	}
-
-	public void setLevel(MembershipLevel level) {
-		this.level = level;
-	}
-
 	public int getMiles() {
 		return miles;
 	}
@@ -82,5 +80,23 @@ public class Member {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-//
+
+	public MembershipStatus getStatus() {
+		return status;
+	}
+
+	public void setStatus(MembershipStatus status) {
+		this.status = status;
+	}
+
+	@OneToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name = "MemberId", referencedColumnName = "memberId")
+	public Itinerary getItinerary() {
+		return itinerary;
+	}
+
+	public void setItinerary(Itinerary itinerary) {
+		this.itinerary = itinerary;
+	}
+
 }
