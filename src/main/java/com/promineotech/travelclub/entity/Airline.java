@@ -3,6 +3,11 @@ package com.promineotech.travelclub.entity;
 import java.util.Set;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class Airline {
@@ -15,6 +20,8 @@ public class Airline {
 	private Set<FlightNumber> flightNumbers;
 	private Set<Itinerary> itineraries;
 	
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	public long getId() {
 		return id;
 	}
@@ -39,18 +46,25 @@ public class Airline {
 	public void setHeadquarters(String headquarters) {
 		this.headquarters = headquarters;
 	}
+	
+	@ManyToOne
+	@JoinColumn(name = "memberId")
 	public Set<Member> getMembers() {
 		return members;
 	}
 	public void setMembers(Set<Member> members) {
 		this.members = members;
 	}
+	
+	//1-1?
 	public Set<FlightNumber> getFlightNumbers() {
 		return flightNumbers;
 	}
 	public void setFlightNumbers(Set<FlightNumber> flightNumbers) {
 		this.flightNumbers = flightNumbers;
 	}
+	
+	//M-M
 	public Set<Itinerary> getItineraries() {
 		return itineraries;
 	}
