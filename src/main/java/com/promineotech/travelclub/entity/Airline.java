@@ -7,6 +7,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 
 @Entity
@@ -64,7 +65,7 @@ public class Airline {
 		this.flightNumbers = flightNumbers;
 	}
 	
-	//M-M
+	@ManyToMany(mappedBy = "airlines")
 	public Set<Itinerary> getItineraries() {
 		return itineraries;
 	}
