@@ -1,14 +1,26 @@
 package com.promineotech.travelclub.entity;
 
+
+import javax.persistence.*;
+import java.util.Set;
+
+/*
+FlightNumber (One to One) Airline
+FlightNumber (One to Many) Itinerary
+ */
+
+@Entity
 public class FlightNumber {
 
     private int id;
-    private String airlineName;
+    private Set<Airline> airlineName;
     private int airlineCode;
-    private int number;
+    private Set<FlightNumber> flightNumbers;
     private int departureTime;
     private int arrivalTime;
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     public int getId() {
         return id;
     }
@@ -17,11 +29,13 @@ public class FlightNumber {
         this.id = id;
     }
 
-    public String getAirlineName() {
+    @OneToOne
+    @JoinColumn(name = "airlineName")
+    public Set<Airline> getAirlineName() {
         return airlineName;
     }
 
-    public void setAirlineName(String airlineName) {
+    public void setAirlineName(Set<Airline> airlineName) {
         this.airlineName = airlineName;
     }
 
@@ -33,12 +47,14 @@ public class FlightNumber {
         this.airlineCode = airlineCode;
     }
 
-    public int getNumber() {
-        return number;
+    @OneToMany
+    @JoinColumn(name = "flightNumberId")
+    public Set<FlightNumber> getFlightNumbers() {
+        return flightNumbers;
     }
 
-    public void setNumber(int number) {
-        this.number = number;
+    public void setFlightNumbers(Set<FlightNumber> flightNumbers) {
+        this.flightNumbers = flightNumbers;
     }
 
     public int getDepartureTime() {
