@@ -1,16 +1,27 @@
 package com.promineotech.travelclub.entity;
 
+import javax.persistence.*;
+import java.util.Set;
+
+/*
+Itinerary (Many to One) Member
+Itinerary (Many to One) Destinations
+Itinerary (Many to One) Flight Numbers
+ */
+
+@Entity
 public class Itinerary {
 
     private int id;
-    private int memberId;
-    private int airlineId;
-    private int flightNumberId;
-    private int departureDestinationId;
+    private Set<Member> members;
+    private Set<FlightNumber> flightNumbers;
+    private Set<Destination> destinations;
     private int arrivalDestinationId;
     private int departureTime;
     private int arrivalTime;
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     public int getId() {
         return id;
     }
@@ -19,36 +30,34 @@ public class Itinerary {
         this.id = id;
     }
 
-    public int getMemberId() {
-        return memberId;
+    @ManyToOne
+    @JoinColumn(name = "memberId")
+    public Set<Member> getMembers() {
+        return members;
     }
 
-    public void setMemberId(int memberId) {
-        this.memberId = memberId;
+    public void setMembers(Set<Member> members) {
+        this.members = members;
     }
 
-    public int getAirlineId() {
-        return airlineId;
+    @ManyToOne
+    @JoinColumn(name = "flightNumberId")
+    public Set<FlightNumber> getFlightNumbers() {
+        return flightNumbers;
     }
 
-    public void setAirlineId(int airlineId) {
-        this.airlineId = airlineId;
+    public void setFlightNumbers(Set<FlightNumber> flightNumbers) {
+        this.flightNumbers = flightNumbers;
     }
 
-    public int getFlightNumberId() {
-        return flightNumberId;
+    @ManyToOne
+    @JoinColumn(name = "destinationId")
+    public Set<Destination> getDestinations() {
+        return destinations;
     }
 
-    public void setFlightNumberId(int flightNumberId) {
-        this.flightNumberId = flightNumberId;
-    }
-
-    public int getDepartureDestinationId() {
-        return departureDestinationId;
-    }
-
-    public void setDepartureDestinationId(int departureDestinationId) {
-        this.departureDestinationId = departureDestinationId;
+    public void setDestinations(Set<Destination> destinations) {
+        this.destinations = destinations;
     }
 
     public int getArrivalDestinationId() {
