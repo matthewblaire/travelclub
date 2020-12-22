@@ -1,5 +1,5 @@
 package com.promineotech.travelclub.service;
 
-public class ItineraryService {
+public class DestinationService {
 
 }
