@@ -1,5 +1,9 @@
 package com.promineotech.travelclub.repository;
 
-public interface AirlineRepository {
+import org.springframework.data.repository.CrudRepository;
+
+import com.promineotech.travelclub.entity.Airline;
+
+public interface AirlineRepository extends CrudRepository<Airline, Long> {
 
 }

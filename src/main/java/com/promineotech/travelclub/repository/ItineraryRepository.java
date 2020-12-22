@@ -1,5 +1,9 @@
 package com.promineotech.travelclub.repository;
 
-public interface ItineraryRepository {
+import org.springframework.data.repository.CrudRepository;
+
+import com.promineotech.travelclub.entity.Itinerary;
+
+public interface ItineraryRepository extends CrudRepository<Itinerary, Long> {
 
 }
