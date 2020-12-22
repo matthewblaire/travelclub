@@ -1,14 +1,13 @@
 package com.promineotech.travelclub.entity;
 
-import javax.persistence.CascadeType;
+import java.util.Set;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToOne;
-
-import com.promineotech.travelclub.util.MembershipStatus;
+import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 
 @Entity
 public class Member {
@@ -17,14 +16,15 @@ public class Member {
 	private String firstName;
 	private String middleName;
 	private String lastName;
-	private MembershipStatus status;
+	private Set<LoyaltyClub> loyaltyclubs;
+
 	private int miles;
 	private String phoneNumber;
 	private String email;
-	private Itinerary itinerary;
+	private Set<Itinerary> itineraries;
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	public Long getId() {
 		return id;
 	}
@@ -81,22 +81,23 @@ public class Member {
 		this.email = email;
 	}
 
-	public MembershipStatus getStatus() {
-		return status;
+	@OneToMany(mappedBy = "members")
+
+	public Set<Itinerary> getItineraries() {
+		return itineraries;
 	}
 
-	public void setStatus(MembershipStatus status) {
-		this.status = status;
+	public void setItineraries(Set<Itinerary> itineraries) {
+		this.itineraries = itineraries;
 	}
 
-	@OneToOne(cascade = CascadeType.ALL)
-	@JoinColumn(name = "member_id", referencedColumnName = "memberId")
-	public Itinerary getItinerary() {
-		return itinerary;
+	@ManyToMany(mappedBy = "members")
+	public Set<LoyaltyClub> getLoyaltyclubs() {
+		return loyaltyclubs;
 	}
 
-	public void setItinerary(Itinerary itinerary) {
-		this.itinerary = itinerary;
+	public void setLoyaltyclubs(Set<LoyaltyClub> loyaltyclubs) {
+		this.loyaltyclubs = loyaltyclubs;
 	}
 
 }
