@@ -1,12 +1,9 @@
 package com.promineotech.travelclub.entity;
 
-import java.util.Set;
-
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
 @Entity
@@ -26,7 +23,7 @@ public class Airline {
 	public void setId(long id) {
 		this.id = id;
 	}
-	@OneToMany(mappedBy = "airlineName")
+	@OneToOne(mappedBy = "airlineName")
 	public String getName() {
 		return name;
 	}
@@ -45,15 +42,11 @@ public class Airline {
 	public void setHeadquarters(String headquarters) {
 		this.headquarters = headquarters;
 	}
-	
-	@OneToOne(mappedBy = "airline")
+
 	public FlightNumber getFlightNumber() {
 		return flightNumber;
 	}
 	public void setFlightNumbers(FlightNumber flightNumber) {
 		this.flightNumber = flightNumber;
 	}
-	
-	
-
 }
