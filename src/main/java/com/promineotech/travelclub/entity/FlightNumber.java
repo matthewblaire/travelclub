@@ -13,7 +13,7 @@ FlightNumber (One to Many) Itinerary
 public class FlightNumber {
 
     private Long id;
-    private Long airlineId;
+    private Airline airline;
     private Set<Itinerary> itineraries;
     private int departureTime;
     private int arrivalTime;
@@ -55,13 +55,12 @@ public class FlightNumber {
         this.arrivalTime = arrivalTime;
     }
 
-    
-    @OneToOne(mappedBy="flightNumber")
-	public Long getAirlineId() {
-		return airlineId;
+    @JoinColumn(name="airlineId")
+	public Airline getAirline() {
+		return airline;
 	}
 
-	public void setAirlineId(Long airlineId) {
-		this.airlineId = airlineId;
+	public void setAirline(Airline airline) {
+		this.airline = airline;
 	}
 }
