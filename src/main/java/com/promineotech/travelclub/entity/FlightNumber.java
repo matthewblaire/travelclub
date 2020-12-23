@@ -12,30 +12,20 @@ FlightNumber (One to Many) Itinerary
 @Entity
 public class FlightNumber {
 
-    private int id;
-    private Airline airline;
+    private Long id;
+    private Long airlineId;
     private Set<Itinerary> itineraries;
     private int departureTime;
     private int arrivalTime;
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    public int getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
-    }
-
-    @OneToOne(mappedBy="flightNumber")
-    @JoinColumn(name = "airlineId")
-    public Airline getAirlineName() {
-        return airline;
-    }
-
-    public void setAirlineName(Airline airline) {
-        this.airline = airline;
     }
 
 
@@ -64,4 +54,14 @@ public class FlightNumber {
     public void setArrivalTime(int arrivalTime) {
         this.arrivalTime = arrivalTime;
     }
+
+    
+    @OneToOne(mappedBy="flightNumber")
+	public Long getAirlineId() {
+		return airlineId;
+	}
+
+	public void setAirlineId(Long airlineId) {
+		this.airlineId = airlineId;
+	}
 }
