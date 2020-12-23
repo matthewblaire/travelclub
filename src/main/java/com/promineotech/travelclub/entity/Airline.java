@@ -6,6 +6,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
 @Entity
@@ -15,7 +16,7 @@ public class Airline {
 	private String name;
 	private String codename;
 	private String headquarters;
-	private Set<FlightNumber> flightNumbers;
+	private FlightNumber flightNumber;
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -25,6 +26,7 @@ public class Airline {
 	public void setId(long id) {
 		this.id = id;
 	}
+	@OneToMany(mappedBy = "airlineName")
 	public String getName() {
 		return name;
 	}
@@ -44,12 +46,12 @@ public class Airline {
 		this.headquarters = headquarters;
 	}
 	
-	@OneToOne(mappedBy = "flightNumbers")
-	public Set<FlightNumber> getFlightNumbers() {
-		return flightNumbers;
+	@OneToOne(mappedBy = "airline")
+	public FlightNumber getFlightNumber() {
+		return flightNumber;
 	}
-	public void setFlightNumbers(Set<FlightNumber> flightNumbers) {
-		this.flightNumbers = flightNumbers;
+	public void setFlightNumbers(FlightNumber flightNumber) {
+		this.flightNumber = flightNumber;
 	}
 	
 	
