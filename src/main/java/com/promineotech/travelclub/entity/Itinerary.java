@@ -80,12 +80,13 @@ public class Itinerary {
 		this.arrivalTime = arrivalTime;
 	}
 
+	@ManyToOne
+	@JoinColumn(name = "flightNumberId")
 	public FlightNumber getFlightNumbers() {
 		return flightNumbers;
 	}
 
-	@ManyToOne
-	@JoinColumn(name = "flightNumberId")
+	
 	public void setFlightNumbers(FlightNumber flightNumbers) {
 		this.flightNumbers = flightNumbers;
 	}
