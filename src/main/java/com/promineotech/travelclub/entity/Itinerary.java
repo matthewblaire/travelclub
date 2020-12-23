@@ -20,7 +20,7 @@ public class Itinerary {
 
 	private Long id;
 	private Member members;
-	private Set<FlightNumber> flightNumbers;
+	private FlightNumber flightNumber;
 	private Destination destination;
 	private int arrivalDestinationId;
 	private int departureTime;
@@ -82,13 +82,13 @@ public class Itinerary {
 
 	@ManyToOne
 	@JoinColumn(name = "flightNumberId")
-	public Set<FlightNumber> getFlightNumbers() {
-		return flightNumbers;
+	public FlightNumber getFlightNumber() {
+		return flightNumber;
 	}
 
 	
-	public void setFlightNumbers(Set<FlightNumber> flightNumbers) {
-		this.flightNumbers = flightNumbers;
+	public void setFlightNumber(FlightNumber flightNumbers) {
+		this.flightNumber = flightNumbers;
 	}
 
 }
