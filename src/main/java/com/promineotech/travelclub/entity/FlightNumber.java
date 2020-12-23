@@ -13,9 +13,9 @@ FlightNumber (One to Many) Itinerary
 public class FlightNumber {
 
     private int id;
-    private Set<Airline> airlineName;
+    private Airline airlineName;
     private int airlineCode;
-    private Set<FlightNumber> flightNumbers;
+    private Set<Itinerary> itineraries;
     private int departureTime;
     private int arrivalTime;
 
@@ -31,11 +31,11 @@ public class FlightNumber {
 
     @OneToOne
     @JoinColumn(name = "airlineName")
-    public Set<Airline> getAirlineName() {
+    public Airline getAirlineName() {
         return airlineName;
     }
 
-    public void setAirlineName(Set<Airline> airlineName) {
+    public void setAirlineName(Airline airlineName) {
         this.airlineName = airlineName;
     }
 
@@ -48,13 +48,13 @@ public class FlightNumber {
     }
 
     @OneToMany
-    @JoinColumn(name = "flightNumberId")
-    public Set<FlightNumber> getFlightNumbers() {
-        return flightNumbers;
+    @JoinColumn(name = "itineraryId")
+    public Set<Itinerary> getItineraries() {
+        return itineraries;
     }
 
-    public void setFlightNumbers(Set<FlightNumber> flightNumbers) {
-        this.flightNumbers = flightNumbers;
+    public void setItineraries(Set<Itinerary> itineraries) {
+        this.itineraries = itineraries;
     }
 
     public int getDepartureTime() {

@@ -6,9 +6,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToMany;
-import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 
 @Entity
 public class Airline {
@@ -17,9 +15,7 @@ public class Airline {
 	private String name;
 	private String codename;
 	private String headquarters;
-	private Set<Member> members;
-	private Set<FlightNumber> flightNumbers;
-	private Set<Itinerary> itineraries;
+	private FlightNumber flightNumbers;
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -48,32 +44,13 @@ public class Airline {
 		this.headquarters = headquarters;
 	}
 	
-	@ManyToOne
-	@JoinColumn(name = "memberId")
-	public Set<Member> getMembers() {
-		return members;
-	}
-	public void setMembers(Set<Member> members) {
-		this.members = members;
-	}
-	
-	//1-1?
-	public Set<FlightNumber> getFlightNumbers() {
+	@OneToOne(mappedBy = "flightNumbers")
+	public FlightNumber getFlightNumbers() {
 		return flightNumbers;
 	}
-	public void setFlightNumbers(Set<FlightNumber> flightNumbers) {
+	public void setFlightNumbers(FlightNumber flightNumbers) {
 		this.flightNumbers = flightNumbers;
 	}
-	
-	@ManyToMany(mappedBy = "airlines")
-	public Set<Itinerary> getItineraries() {
-		return itineraries;
-	}
-	public void setItineraries(Set<Itinerary> itineraries) {
-		this.itineraries = itineraries;
-	}
-	
-	
 	
 	
 
