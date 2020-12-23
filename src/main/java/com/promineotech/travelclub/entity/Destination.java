@@ -59,7 +59,7 @@ public class Destination {
 		this.code = code;
 	}
 
-	@OneToMany(mappedBy = "destinationId")
+	@OneToMany(mappedBy = "destination")
 	public Set<Itinerary> getItineraries() {
 		return itineraries;
 	}

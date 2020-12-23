@@ -18,21 +18,21 @@ Itinerary (Many to One) Flight Numbers
 @Entity
 public class Itinerary {
 
-	private int id;
+	private Long id;
 	private Member members;
-	private FlightNumber flightNumbers;
-	private Set<Destination> destinations;
+	private Set<FlightNumber> flightNumbers;
+	private Destination destination;
 	private int arrivalDestinationId;
 	private int departureTime;
 	private int arrivalTime;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	public int getId() {
+	public Long getId() {
 		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 
@@ -48,12 +48,12 @@ public class Itinerary {
 
 	@ManyToOne
 	@JoinColumn(name = "destinationId")
-	public Set<Destination> getDestinations() {
-		return destinations;
+	public Destination getDestination() {
+		return destination;
 	}
 
-	public void setDestinations(Set<Destination> destinations) {
-		this.destinations = destinations;
+	public void setDestination(Destination destinations) {
+		this.destination = destinations;
 	}
 
 	public int getArrivalDestinationId() {
@@ -82,12 +82,12 @@ public class Itinerary {
 
 	@ManyToOne
 	@JoinColumn(name = "flightNumberId")
-	public FlightNumber getFlightNumbers() {
+	public Set<FlightNumber> getFlightNumbers() {
 		return flightNumbers;
 	}
 
 	
-	public void setFlightNumbers(FlightNumber flightNumbers) {
+	public void setFlightNumbers(Set<FlightNumber> flightNumbers) {
 		this.flightNumbers = flightNumbers;
 	}
 

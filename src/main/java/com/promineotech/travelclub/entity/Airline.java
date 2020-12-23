@@ -15,7 +15,7 @@ public class Airline {
 	private String name;
 	private String codename;
 	private String headquarters;
-	private FlightNumber flightNumbers;
+	private Set<FlightNumber> flightNumbers;
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -45,10 +45,10 @@ public class Airline {
 	}
 	
 	@OneToOne(mappedBy = "flightNumbers")
-	public FlightNumber getFlightNumbers() {
+	public Set<FlightNumber> getFlightNumbers() {
 		return flightNumbers;
 	}
-	public void setFlightNumbers(FlightNumber flightNumbers) {
+	public void setFlightNumbers(Set<FlightNumber> flightNumbers) {
 		this.flightNumbers = flightNumbers;
 	}
 	
