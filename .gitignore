@@ -25,3 +25,4 @@ hs_err_pid*
 src/main/resources/application.properties
 target/classes/application.properties
 target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst
+target/classes/application.properties

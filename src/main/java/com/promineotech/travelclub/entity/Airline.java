@@ -9,7 +9,7 @@ import javax.persistence.OneToOne;
 @Entity
 public class Airline {
 	
-	private long id;
+	private Long id;
 	private String name;
 	private String codename;
 	private String headquarters;
