@@ -1,7 +1,13 @@
 package com.promineotech.travelclub.entity;
 
-import javax.persistence.*;
 import java.util.Set;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
 /*
 Itinerary (Many to One) Member
@@ -12,76 +18,76 @@ Itinerary (Many to One) Flight Numbers
 @Entity
 public class Itinerary {
 
-    private int id;
-    private Set<Member> members;
-    private Set<FlightNumber> flightNumbers;
-    private Set<Destination> destinations;
-    private int arrivalDestinationId;
-    private int departureTime;
-    private int arrivalTime;
+	private int id;
+	private Member members;
+	private FlightNumber flightNumbers;
+	private Set<Destination> destinations;
+	private int arrivalDestinationId;
+	private int departureTime;
+	private int arrivalTime;
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    public int getId() {
-        return id;
-    }
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	public int getId() {
+		return id;
+	}
 
-    public void setId(int id) {
-        this.id = id;
-    }
+	public void setId(int id) {
+		this.id = id;
+	}
 
-    @ManyToOne
-    @JoinColumn(name = "memberId")
-    public Set<Member> getMembers() {
-        return members;
-    }
+	@ManyToOne
+	@JoinColumn(name = "memberId")
+	public Member getMembers() {
+		return members;
+	}
 
-    public void setMembers(Set<Member> members) {
-        this.members = members;
-    }
+	public void setMembers(Member members) {
+		this.members = members;
+	}
 
-    @ManyToOne
-    @JoinColumn(name = "flightNumberId")
-    public Set<FlightNumber> getFlightNumbers() {
-        return flightNumbers;
-    }
+	@ManyToOne
+	@JoinColumn(name = "destinationId")
+	public Set<Destination> getDestinations() {
+		return destinations;
+	}
 
-    public void setFlightNumbers(Set<FlightNumber> flightNumbers) {
-        this.flightNumbers = flightNumbers;
-    }
+	public void setDestinations(Set<Destination> destinations) {
+		this.destinations = destinations;
+	}
 
-    @ManyToOne
-    @JoinColumn(name = "destinationId")
-    public Set<Destination> getDestinations() {
-        return destinations;
-    }
+	public int getArrivalDestinationId() {
+		return arrivalDestinationId;
+	}
 
-    public void setDestinations(Set<Destination> destinations) {
-        this.destinations = destinations;
-    }
+	public void setArrivalDestinationId(int arrivalDestinationId) {
+		this.arrivalDestinationId = arrivalDestinationId;
+	}
 
-    public int getArrivalDestinationId() {
-        return arrivalDestinationId;
-    }
+	public int getdepartureTime() {
+		return departureTime;
+	}
 
-    public void setArrivalDestinationId(int arrivalDestinationId) {
-        this.arrivalDestinationId = arrivalDestinationId;
-    }
+	public void setdepartureTime(int departureTime) {
+		this.departureTime = departureTime;
+	}
 
-    public int getdepartureTime() {
-        return departureTime;
-    }
+	public int getarrivalTime() {
+		return arrivalTime;
+	}
 
-    public void setdepartureTime(int departureTime) {
-        this.departureTime = departureTime;
-    }
+	public void setarrivalTime(int arrivalTime) {
+		this.arrivalTime = arrivalTime;
+	}
 
-    public int getarrivalTime() {
-        return arrivalTime;
-    }
+	public FlightNumber getFlightNumbers() {
+		return flightNumbers;
+	}
 
-    public void setarrivalTime(int arrivalTime) {
-        this.arrivalTime = arrivalTime;
-    }
+	@ManyToOne
+	@JoinColumn(name = "flightNumberId")
+	public void setFlightNumbers(FlightNumber flightNumbers) {
+		this.flightNumbers = flightNumbers;
+	}
 
 }
