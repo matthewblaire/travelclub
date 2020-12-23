@@ -55,6 +55,7 @@ public class FlightNumber {
         this.arrivalTime = arrivalTime;
     }
 
+    @OneToOne
     @JoinColumn(name="airlineId")
 	public Airline getAirline() {
 		return airline;

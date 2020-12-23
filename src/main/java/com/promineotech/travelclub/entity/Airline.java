@@ -4,6 +4,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 
 @Entity
@@ -17,13 +18,13 @@ public class Airline {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	public long getId() {
+	public Long getId() {
 		return id;
 	}
 	public void setId(long id) {
 		this.id = id;
 	}
-	@OneToOne(mappedBy = "airlineName")
+
 	public String getName() {
 		return name;
 	}
@@ -43,10 +44,12 @@ public class Airline {
 		this.headquarters = headquarters;
 	}
 
+	@OneToOne
+	@JoinColumn(name="flightNumberId")
 	public FlightNumber getFlightNumber() {
 		return flightNumber;
 	}
-	public void setFlightNumbers(FlightNumber flightNumber) {
+	public void setFlightNumber(FlightNumber flightNumber) {
 		this.flightNumber = flightNumber;
 	}
 }
