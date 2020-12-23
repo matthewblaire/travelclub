@@ -15,7 +15,7 @@ public class FlightNumber {
     private int id;
     private Airline airlineName;
     private int airlineCode;
-    private Set<Itinerary> itinerary;
+    private Set<Itinerary> itineraries;
     private int departureTime;
     private int arrivalTime;
 
@@ -48,13 +48,13 @@ public class FlightNumber {
     }
 
     
-    @JoinColumn(name = "itineraryId")
+    @OneToMany(mappedBy= "flightNumber")
     public Set<Itinerary> getItineraries() {
-        return itinerary;
+        return itineraries;
     }
 
-    public void setItineraries(Set<Itinerary> itineraries) {
-        this.itinerary = itineraries;
+    public void setItineraries(Set<Itinerary> itinerary) {
+        this.itineraries = itinerary;
     }
 
     public int getDepartureTime() {
