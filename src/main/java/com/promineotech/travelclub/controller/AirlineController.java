@@ -1,6 +1,7 @@
 package com.promineotech.travelclub.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -18,8 +19,12 @@ public class AirlineController {
 	private AirlineService airlineService;
 	
 	@PostMapping("/addAirline")
-	public ResponseEntity<Airline> add(@RequestBody Airline airline) {
-		return null;
+	public ResponseEntity<Object> add(@RequestBody Airline airline) {
+		Airline addAirline = airlineService.createAirline(airline);
+		
+		ResponseEntity<Object> responseEntity = new ResponseEntity<Object>(addAirline, HttpStatus.CREATED); 
+		
+		return responseEntity;
 	}
 
 }
