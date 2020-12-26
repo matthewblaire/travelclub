@@ -84,7 +84,6 @@ public class Itinerary {
 		return flightNumber;
 	}
 
-	
 	public void setFlightNumber(FlightNumber flightNumbers) {
 		this.flightNumber = flightNumbers;
 	}

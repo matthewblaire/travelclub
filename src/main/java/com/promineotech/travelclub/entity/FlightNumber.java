@@ -1,6 +1,5 @@
 package com.promineotech.travelclub.entity;
 
-
 import javax.persistence.*;
 import java.util.Set;
 
@@ -28,8 +27,6 @@ public class FlightNumber {
         this.id = id;
     }
 
-
-    
     @OneToMany(mappedBy= "flightNumber")
     public Set<Itinerary> getItineraries() {
         return itineraries;
