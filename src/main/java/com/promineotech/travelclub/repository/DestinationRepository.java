@@ -1,7 +1,5 @@
 package com.promineotech.travelclub.repository;
 
-
-
 import org.springframework.data.repository.CrudRepository;
 
 import com.promineotech.travelclub.entity.Destination;
