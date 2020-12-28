@@ -14,4 +14,8 @@ public class FlightNumberService {
     public FlightNumber createFlightNumber(FlightNumber flightNumber) {
         return flightNumberRepository.save(flightNumber);
     }
+
+    public Iterable<FlightNumber> getAllFlightNumbers() {
+        return flightNumberRepository.findAll();
+    }
 }
