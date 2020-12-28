@@ -19,4 +19,7 @@ public class ItineraryService {
         return itineraryRepository.findAll();
     }
 
+    public Itinerary getItinerary(Long id) {
+        return itineraryRepository.findById(id).get();
+    }
 }
