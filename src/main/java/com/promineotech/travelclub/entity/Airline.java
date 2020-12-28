@@ -4,7 +4,6 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 
 @Entity
@@ -44,8 +43,7 @@ public class Airline {
 		this.headquarters = headquarters;
 	}
 
-	@OneToOne
-	@JoinColumn(name="flightNumberId")
+	@OneToOne(mappedBy = "airline")
 	public FlightNumber getFlightNumber() {
 		return flightNumber;
 	}
