@@ -14,4 +14,9 @@ public class ItineraryService {
     public Itinerary createItinerary(Itinerary itinerary) {
         return itineraryRepository.save(itinerary);
     }
+
+    public Iterable<Itinerary> getAllItineraries() {
+        return itineraryRepository.findAll();
+    }
+
 }
