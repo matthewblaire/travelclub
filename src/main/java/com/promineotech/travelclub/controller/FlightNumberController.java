@@ -27,4 +27,9 @@ public class FlightNumberController {
         return new ResponseEntity<>(flightNumberService.getAllFlightNumbers(), HttpStatus.OK);
     }
 
+    @RequestMapping(value = "/{id}", method = RequestMethod.GET)
+    public ResponseEntity<Object> getFlightNumber(@PathVariable Long id) {
+        return new ResponseEntity<>(flightNumberService.getFlightNumber(id), HttpStatus.OK);
+    }
+
 }

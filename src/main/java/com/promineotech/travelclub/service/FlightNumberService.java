@@ -18,4 +18,8 @@ public class FlightNumberService {
     public Iterable<FlightNumber> getAllFlightNumbers() {
         return flightNumberRepository.findAll();
     }
+
+    public FlightNumber getFlightNumber(Long id) {
+        return flightNumberRepository.findById(id).get();
+    }
 }
