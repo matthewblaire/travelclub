@@ -35,7 +35,7 @@ public class MemberController {
 		try {
 			memberService.deleteMember(id);
 
-			return new ResponseEntity<Object>("Successfully deleted customer with id : " + id, HttpStatus.OK);
+			return new ResponseEntity<Object>("Successfully deleted member with id : " + id, HttpStatus.OK);
 		} catch (Exception e) {
 			return new ResponseEntity<Object>(e.getMessage(), HttpStatus.NOT_FOUND);
 		}
