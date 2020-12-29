@@ -38,4 +38,10 @@ public class ItineraryController {
         return new ResponseEntity<>("Deleted Itinerary by Id: " + id, HttpStatus.OK);
     }
 
+    @RequestMapping(method = RequestMethod.DELETE)
+    public ResponseEntity<Object> deleteAllItineraries() {
+        itineraryService.deleteAllItineraries();
+        return new ResponseEntity<>("Deleted All Itineraries", HttpStatus.OK);
+    }
+
 }

@@ -27,4 +27,8 @@ public class ItineraryService {
     public void deleteItinerary(Long id) {
         itineraryRepository.deleteById(id);
     }
+
+    public void deleteAllItineraries() {
+        itineraryRepository.deleteAll();
+    }
 }
