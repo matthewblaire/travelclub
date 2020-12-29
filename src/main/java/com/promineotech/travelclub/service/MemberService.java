@@ -21,4 +21,8 @@ public class MemberService {
 
 	}
 
+	public Member getMemberInfo(Long id) {
+		return memberRepository.findById(id).get();
+	}
+
 }
