@@ -39,4 +39,10 @@ public class FlightNumberController {
         return new ResponseEntity<Object>("Deleted comment with id: " + id, HttpStatus.OK);
     }
 
+    @RequestMapping(method = RequestMethod.DELETE)
+    public ResponseEntity<Object> deleteAllFlightNumbers() {
+        flightNumberService.deleteAllFlightNumbers();
+        return new ResponseEntity<>("Deleted All Flight Numbers", HttpStatus.OK);
+    }
+
 }
