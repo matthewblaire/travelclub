@@ -8,7 +8,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/itineraries")
+@RequestMapping("/itinerary")
 public class ItineraryController {
 
     @Autowired
@@ -30,6 +30,12 @@ public class ItineraryController {
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
     public ResponseEntity<Object> getItinerary(@PathVariable Long id) {
         return new ResponseEntity<>(itineraryService.getItinerary(id), HttpStatus.OK);
+    }
+
+    @RequestMapping(value ="/{id}", method = RequestMethod.DELETE)
+    public ResponseEntity<Object> deleteItinerary(@PathVariable Long id) {
+        itineraryService.deleteItinerary(id);
+        return new ResponseEntity<>("Deleted Itinerary by Id: " + id, HttpStatus.OK);
     }
 
 }

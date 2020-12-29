@@ -24,7 +24,7 @@ public class FlightNumberService {
     }
 
 
-    public void deleteItinerary(Long id) {
+    public void deleteFlightNumber(Long id) {
         flightNumberRepository.deleteById(id);
     }
 }

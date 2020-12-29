@@ -34,8 +34,8 @@ public class FlightNumberController {
 
 
     @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
-    public ResponseEntity<Object> deleteItinerary(@PathVariable Long id) {
-        flightNumberService.deleteItinerary(id);
+    public ResponseEntity<Object> deleteFlightNumber(@PathVariable Long id) {
+        flightNumberService.deleteFlightNumber(id);
         return new ResponseEntity<Object>("Deleted comment with id: " + id, HttpStatus.OK);
     }
 

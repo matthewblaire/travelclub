@@ -22,4 +22,9 @@ public class ItineraryService {
     public Itinerary getItinerary(Long id) {
         return itineraryRepository.findById(id).get();
     }
+
+
+    public void deleteItinerary(Long id) {
+        itineraryRepository.deleteById(id);
+    }
 }
