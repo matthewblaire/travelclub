@@ -22,4 +22,9 @@ public class FlightNumberService {
     public FlightNumber getFlightNumber(Long id) {
         return flightNumberRepository.findById(id).get();
     }
+
+
+    public void deleteItinerary(Long id) {
+        flightNumberRepository.deleteById(id);
+    }
 }

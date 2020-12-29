@@ -32,4 +32,11 @@ public class FlightNumberController {
         return new ResponseEntity<>(flightNumberService.getFlightNumber(id), HttpStatus.OK);
     }
 
+
+    @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
+    public ResponseEntity<Object> deleteItinerary(@PathVariable Long id) {
+        flightNumberService.deleteItinerary(id);
+        return new ResponseEntity<Object>("Deleted comment with id: " + id, HttpStatus.OK);
+    }
+
 }
