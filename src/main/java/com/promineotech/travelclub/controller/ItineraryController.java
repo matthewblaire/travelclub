@@ -32,6 +32,15 @@ public class ItineraryController {
         return new ResponseEntity<>(itineraryService.getItinerary(id), HttpStatus.OK);
     }
 
+    @RequestMapping(value = "/{id}", method = RequestMethod.PUT)
+    public ResponseEntity<Object> updateItinerary(@RequestBody Itinerary itinerary, @PathVariable Long id) {
+        try {
+            return new ResponseEntity<Object>(itineraryService.updateItinerary(itinerary, id), HttpStatus.OK);
+        } catch (Exception e) {
+            return new ResponseEntity<Object>(e.getMessage(), HttpStatus.BAD_REQUEST);
+        }
+    }
+
     @RequestMapping(value ="/{id}", method = RequestMethod.DELETE)
     public ResponseEntity<Object> deleteItinerary(@PathVariable Long id) {
         itineraryService.deleteItinerary(id);
