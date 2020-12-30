@@ -32,6 +32,14 @@ public class FlightNumberController {
         return new ResponseEntity<>(flightNumberService.getFlightNumber(id), HttpStatus.OK);
     }
 
+    @RequestMapping(value = "/{id}", method = RequestMethod.PUT)
+    public ResponseEntity<Object> updateFlightNumber(@RequestBody FlightNumber flightNumber, @PathVariable Long id) {
+        try {
+            return new ResponseEntity<Object>(flightNumberService.updateFlight(flightNumber, id), HttpStatus.OK);
+        } catch (Exception e) {
+            return new ResponseEntity<Object>(e.getMessage(), HttpStatus.BAD_REQUEST);
+        }
+    }
 
     @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
     public ResponseEntity<Object> deleteFlightNumber(@PathVariable Long id) {

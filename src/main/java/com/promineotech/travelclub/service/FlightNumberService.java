@@ -23,6 +23,14 @@ public class FlightNumberService {
         return flightNumberRepository.findById(id).get();
     }
 
+    public FlightNumber updateFlight(FlightNumber flightNumber, Long id) {
+        FlightNumber foundFlightNumber = flightNumberRepository.findById(id).get();
+
+        foundFlightNumber.setDepartureTime(flightNumber.getDepartureTime());
+        foundFlightNumber.setArrivalTime(flightNumber.getArrivalTime());
+
+        return flightNumberRepository.save(foundFlightNumber);
+    }
 
     public void deleteFlightNumber(Long id) {
         flightNumberRepository.deleteById(id);
