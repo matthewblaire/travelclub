@@ -14,7 +14,7 @@ public class ItineraryController {
     @Autowired
     private ItineraryService itineraryService;
 
-    @PostMapping("/register")
+    @PostMapping("/create")
     public ResponseEntity<Object> register(@RequestBody Itinerary itinerary) {
         Itinerary newItinerary = itineraryService.createItinerary(itinerary);
 

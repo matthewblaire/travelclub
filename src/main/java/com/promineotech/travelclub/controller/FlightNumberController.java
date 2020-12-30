@@ -14,7 +14,7 @@ public class FlightNumberController {
     @Autowired
     private FlightNumberService flightNumberService;
 
-    @PostMapping("/register")
+    @PostMapping("/create")
     public ResponseEntity<Object> register(@RequestBody FlightNumber flightNumber) {
         FlightNumber newFlightNumber = flightNumberService.createFlightNumber(flightNumber);
 
