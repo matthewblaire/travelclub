@@ -21,4 +21,37 @@ public class MemberService {
 
 	}
 
+	public Member getMemberInfo(Long id) {
+		return memberRepository.findById(id).get();
+	}
+
+	public Iterable<Member> getAllMembers() {
+		return memberRepository.findAll();
+	}
+
+	public void deleteAllMembers() {
+		memberRepository.deleteAll();
+	}
+
+	public Member updateMemberInformation(Member member, Long id) throws Exception {
+
+		Member foundMember = memberRepository.findById(id).get();
+
+		if (foundMember == null) {
+			throw new Exception("Member not found");
+
+		}
+
+		foundMember.setFirstName(member.getFirstName());
+		foundMember.setMiddleName(member.getMiddleName());
+		foundMember.setLastName(member.getLastName());
+		foundMember.setLoyaltyclubs(member.getLoyaltyclubs());
+		foundMember.setMiles(member.getMiles());
+		foundMember.setPhoneNumber(member.getPhoneNumber());
+		foundMember.setEmail(member.getEmail());
+		foundMember.setItineraries(member.getItineraries());
+
+		return memberRepository.save(foundMember);
+	}
+
 }
