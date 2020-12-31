@@ -14,7 +14,7 @@ public class ItineraryController {
     @Autowired
     private ItineraryService itineraryService;
 
-    @PostMapping("/register")
+    @PostMapping("/create")
     public ResponseEntity<Object> register(@RequestBody Itinerary itinerary) {
         Itinerary newItinerary = itineraryService.createItinerary(itinerary);
 
@@ -30,6 +30,15 @@ public class ItineraryController {
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
     public ResponseEntity<Object> getItinerary(@PathVariable Long id) {
         return new ResponseEntity<>(itineraryService.getItinerary(id), HttpStatus.OK);
+    }
+
+    @RequestMapping(value = "/{id}", method = RequestMethod.PUT)
+    public ResponseEntity<Object> updateItinerary(@RequestBody Itinerary itinerary, @PathVariable Long id) {
+        try {
+            return new ResponseEntity<Object>(itineraryService.updateItinerary(itinerary, id), HttpStatus.OK);
+        } catch (Exception e) {
+            return new ResponseEntity<Object>(e.getMessage(), HttpStatus.BAD_REQUEST);
+        }
     }
 
     @RequestMapping(value ="/{id}", method = RequestMethod.DELETE)

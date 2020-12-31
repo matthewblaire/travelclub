@@ -23,6 +23,16 @@ public class ItineraryService {
         return itineraryRepository.findById(id).get();
     }
 
+    public Itinerary updateItinerary(Itinerary itinerary, Long id) throws Exception {
+        Itinerary foundItinerary = itineraryRepository.findById(id).get();
+        if (foundItinerary == null) {
+            throw new Exception("Itinerary not found.");
+        }
+        foundItinerary.setarrivalTime(itinerary.getarrivalTime());
+        foundItinerary.setdepartureTime(itinerary.getdepartureTime());
+        foundItinerary.setArrivalDestinationId(itinerary.getArrivalDestinationId());
+        return itineraryRepository.save(foundItinerary);
+    }
 
     public void deleteItinerary(Long id) {
         itineraryRepository.deleteById(id);
