@@ -15,5 +15,21 @@ public class AirlineService {
 	public Airline createAirline(Airline airline) {
 		return airlineRepository.save(airline);
 	}
+	
+//	public Airline searchAirline(Airline airline) throws Exception {
+//		String pAirline = airline.getName();
+//		
+//		Airline foundAirline = airlineRepository.findByAirline(airline);
+//		
+//		if(foundAirline == null) {
+//			throw new Exception("Airline: " + pAirline + " does not exist.");
+//		}
+//		if(!foundAirline.getName().equals(pAirline)) {
+//			throw new Exception("Invalid airline.");
+//		}
+//		
+//		return foundAirline;
+//	}
+
 
 }
