@@ -1,5 +1,6 @@
 # Travel Club 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+Do you love to travel? Has the pandemic been distbrunign your travel plans? Here is how the Travel Club Admin App works!
+The administrator manages the members of the travel club and manage their travel plans by searching for airlines and destinations that can get members to their destination from a list of airlines. Two destinations and an airline creates a flight number for each airline. Members build out their own itineraries that includes the date they are travelling to which destination on what airline. Members can also be a member of a loyalty club where the higher their points, the more prestigeous their mememberships would be in the club.
 
 ## How Do I Use It? 
 Travel Club app has many functionalities available. Deploy this application locally to your machine and start using the following endpoints avaialble. Here are a few:
