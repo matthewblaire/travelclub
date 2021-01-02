@@ -22,6 +22,7 @@ GET http://localhost:8080/flight_numbers
     },
     ...
 ```
+<br />
 
 > All itineraries and it's corresponding details will be retrieved. 
 ```java 
