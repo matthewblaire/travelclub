@@ -26,5 +26,15 @@ public class AirlineController {
 		
 		return responseEntity;
 	}
+	
+//	@PostMapping("/searchAirline")
+//	private ResponseEntity<Object> search(@RequestBody Airline airline) throws Exception{
+//		ResponseEntity<Object> responseEntity;
+//		Airline foundAirline = airlineService.searchAirline(airline);
+//		responseEntity = new ResponseEntity<Object>(foundAirline, HttpStatus.OK);
+//		
+//		
+//		return responseEntity;
+//	}
 
 }

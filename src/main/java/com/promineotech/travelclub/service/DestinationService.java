@@ -19,6 +19,15 @@ public class DestinationService {
 		return repo.findAll();
 	}
 	
+	public Destination getDestinationById(Long id) {
+		try {
+			return repo.findById(id).orElse(null);
+		} catch (Exception e) {
+			logger.error("Exception occurred while trying to retrieve destination: " + id, e);
+			throw e;
+		}
+	}
+	
 	public Destination createDestination(Destination destination) {
 		return repo.save(destination);
 	}
@@ -39,7 +48,7 @@ public class DestinationService {
 		
 	}
 	
-	public void removeDestination(Long id) throws Exception {
+	public void deleteDestination(Long id) throws Exception {
 		try {
 			repo.deleteById(id);
 		} catch (Exception e) {
