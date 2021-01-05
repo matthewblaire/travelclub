@@ -1,5 +1,7 @@
 package com.promineotech.travelclub.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -13,6 +15,7 @@ public class Airline {
 	private String name;
 	private String codename;
 	private String headquarters;
+	@JsonIgnore
 	private FlightNumber flightNumber;
 	
 	@Id
